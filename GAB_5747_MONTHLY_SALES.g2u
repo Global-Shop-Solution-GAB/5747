@@ -1,0 +1,1539 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.frmMonthlySales..Create
+Gui.frmMonthlySales..Caption("Monthly Sales")
+Gui.frmMonthlySales..Size(15030,9870)
+Gui.frmMonthlySales..MinX(15045)
+Gui.frmMonthlySales..MinY(10095)
+Gui.frmMonthlySales..Position(0,0)
+Gui.frmMonthlySales..BackColor(-2147483633)
+Gui.frmMonthlySales..MousePointer(0)
+Gui.frmMonthlySales..Event(UnLoad,Unload)
+Gui.frmMonthlySales.picGSSLogo.Create(PictureBox)
+Gui.frmMonthlySales.picGSSLogo.Size(9255,1155)
+Gui.frmMonthlySales.picGSSLogo.Position(5310,45)
+Gui.frmMonthlySales.lblStatus.Create(Label,"Loading Data....",False,1935,255,0,2475,135,True,0,"Arial",8,-2147483633,0)
+Gui.frmMonthlySales.pbStatus.Create(ProgressBar)
+Gui.frmMonthlySales.pbStatus.Size(1815,255)
+Gui.frmMonthlySales.pbStatus.Position(2475,435)
+Gui.frmMonthlySales.pbStatus.Visible(False)
+Gui.frmMonthlySales.cmdRefresh.Create(Button)
+Gui.frmMonthlySales.cmdRefresh.Size(975,345)
+Gui.frmMonthlySales.cmdRefresh.Position(120,780)
+Gui.frmMonthlySales.cmdRefresh.Caption("REFRESH")
+Gui.frmMonthlySales.cmdRefresh.Event(Click,LoadRecords)
+Gui.frmMonthlySales.cmdRefresh.TabStop(True)
+Gui.frmMonthlySales.cmdRefresh.TabIndex(3)
+Gui.frmMonthlySales.dtpDate.Create(DatePicker)
+Gui.frmMonthlySales.dtpDate.Size(1935,285)
+Gui.frmMonthlySales.dtpDate.Position(4500,405)
+Gui.frmMonthlySales.dtpDate.Visible(False)
+Gui.frmMonthlySales.lblEndDate.Create(Label,"Select a Month and Year",True,1935,255,0,120,150,True,0,"Arial",8,-2147483633,0)
+Gui.frmMonthlySales.lblEndDate.FontStyle(True,False,False,False,False)
+Gui.frmMonthlySales.lblEndDate.ForeColor(-2147483619)
+Gui.frmMonthlySales.tab1.Create(Tab)
+Gui.frmMonthlySales.tab1.Size(14685,8025)
+Gui.frmMonthlySales.tab1.Position(60,1245)
+Gui.frmMonthlySales.tab1.Tabs(6)
+Gui.frmMonthlySales.tab1.SetTab(0)
+Gui.frmMonthlySales.tab1.Caption("Monthly Sales")
+Gui.frmMonthlySales.tab1.SetTab(1)
+Gui.frmMonthlySales.tab1.Caption("Current Accrual")
+Gui.frmMonthlySales.tab1.SetTab(2)
+Gui.frmMonthlySales.tab1.Caption("Current Open Invoices")
+Gui.frmMonthlySales.tab1.SetTab(3)
+Gui.frmMonthlySales.tab1.Caption("Previous Accrual")
+Gui.frmMonthlySales.tab1.SetTab(4)
+Gui.frmMonthlySales.tab1.Caption("Previous Open Invoices")
+Gui.frmMonthlySales.tab1.SetTab(5)
+Gui.frmMonthlySales.tab1.Caption("Invoices")
+Gui.frmMonthlySales.GsGCMonthlySales.Create(GsGridControl)
+Gui.frmMonthlySales.GsGCMonthlySales.Size(14520,7530)
+Gui.frmMonthlySales.GsGCMonthlySales.Position(30,30)
+Gui.frmMonthlySales.GsGCMonthlySales.TabStop(True)
+Gui.frmMonthlySales.GsGCMonthlySales.Parent("tab1",0)
+Gui.frmMonthlySales.GsGCAccrual.Create(GsGridControl)
+Gui.frmMonthlySales.GsGCAccrual.Size(14520,7470)
+Gui.frmMonthlySales.GsGCAccrual.Position(0,30)
+Gui.frmMonthlySales.GsGCAccrual.Parent("tab1",1)
+Gui.frmMonthlySales.GsGCAccrual.TabStop(True)
+Gui.frmMonthlySales.GsGCAccrual.TabIndex(1)
+Gui.frmMonthlySales.GsGCPrevAccrual.Create(GsGridControl)
+Gui.frmMonthlySales.GsGCPrevAccrual.Size(14520,7470)
+Gui.frmMonthlySales.GsGCPrevAccrual.Position(30,30)
+Gui.frmMonthlySales.GsGCPrevAccrual.Parent("tab1",3)
+Gui.frmMonthlySales.GsGCPrevAccrual.TabStop(True)
+Gui.frmMonthlySales.GsGCPrevAccrual.TabIndex(2)
+Gui.frmMonthlySales.GsGCOpenInv.Create(GsGridControl)
+Gui.frmMonthlySales.GsGCOpenInv.Size(14520,7470)
+Gui.frmMonthlySales.GsGCOpenInv.Position(30,30)
+Gui.frmMonthlySales.GsGCOpenInv.Parent("tab1",2)
+Gui.frmMonthlySales.GsGCOpenInv.TabStop(True)
+Gui.frmMonthlySales.GsGCOpenInv.TabIndex(3)
+Gui.frmMonthlySales.GsGCPrevOpenInv.Create(GsGridControl)
+Gui.frmMonthlySales.GsGCPrevOpenInv.Size(14520,7470)
+Gui.frmMonthlySales.GsGCPrevOpenInv.Position(30,30)
+Gui.frmMonthlySales.GsGCPrevOpenInv.Parent("tab1",4)
+Gui.frmMonthlySales.GsGCPrevOpenInv.TabStop(True)
+Gui.frmMonthlySales.GsGCPrevOpenInv.TabIndex(4)
+Gui.frmMonthlySales.GsGCInvoice.Create(GsGridControl)
+Gui.frmMonthlySales.GsGCInvoice.Size(14505,7470)
+Gui.frmMonthlySales.GsGCInvoice.Position(30,30)
+Gui.frmMonthlySales.GsGCInvoice.Parent("tab1",5)
+Gui.frmMonthlySales.GsGCInvoice.TabStop(True)
+Gui.frmMonthlySales.GsGCInvoice.TabIndex(5)
+Gui.frmMonthlySales.ddlMonth.Create(DropDownList)
+Gui.frmMonthlySales.ddlMonth.Size(1095,330)
+Gui.frmMonthlySales.ddlMonth.Position(120,390)
+Gui.frmMonthlySales.ddlYear.Create(DropDownList)
+Gui.frmMonthlySales.ddlYear.Size(1095,330)
+Gui.frmMonthlySales.ddlYear.Position(1275,390)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+	V.Global.bLoadDate.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	V.Local.sGSSLogo.Declare
+	V.Local.sIcon.Declare
+	V.Local.sDir.Declare
+	V.Local.bDir.Declare
+	V.Local.i1.Declare
+	V.Local.dLastMonth.Declare
+
+	F.Intrinsic.String.Build("{0}\GAB\GAS\gss2.ico",V.Caller.PluginsDir,v.Local.sIcon)
+	F.Intrinsic.String.Build("{0}\GAB\GAS\GAB_GSS_Logo_Green_Dash.png",V.Caller.PluginsDir,V.Local.sGssLogo)
+	Gui.frmMonthlySales.picGSSLogo.Picture(V.Local.sGSSLogo)
+	Gui.frmMonthlySales..Icon(V.Local.sIcon)
+'	Gui.frmTotalsPL..Icon(V.Local.sIcon)
+
+	F.Intrinsic.Control.CallSub(SetAnchors)
+	F.Intrinsic.Control.CallSub(SetContextMenus)
+	
+	F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass,300)
+	
+	'Set the month in dropdownlist
+	F.Intrinsic.Control.For(V.Local.i1,1,12,1)
+	Gui.frmMonthlySales.ddlMonth.AddItem(V.Local.i1)
+	F.Intrinsic.Control.Next(V.Local.i1)
+'	F.Intrinsic.Date.DateAdd("M",-1,V.Ambient.Date,V.Local.dLastMonth)
+	F.Intrinsic.Date.Month(V.Ambient.Date,V.Local.i1)
+	Gui.frmMonthlySales.ddlMonth.Text(V.Local.i1)
+
+	'Set the year in dropdownlist
+'	F.ODBC.Connection!con.OpenLocalRecordsetRO("rst","select distinct(start_year), start_year from gl_calendar order by start_year")
+	F.Data.Dictionary.CreateFromSQL("Year","con","select distinct(start_year), start_year from gl_calendar order by start_year",4)
+	Gui.frmMonthlySales.ddlYear.AddItems("Dictionary","Year")
+	F.Data.Dictionary.Close("Year")
+	F.Intrinsic.Date.Year(V.Ambient.Date,V.Local.i1)
+	Gui.frmMonthlySales.ddlYear.Text(V.Local.i1)	
+
+	Gui.frmMonthlySales..Show
+	Gui.frmMonthlySales.tab1.SetTab(0)
+	F.Intrinsic.Control.CallSub(SetTabAnchors)	
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	F.ODBC.Connection!con.Close
+
+	F.Intrinsic.Control.If(V.Global.bLoadDate)
+		F.Intrinsic.Control.CallSub(Serialize)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.Unload.End
+
+Program.Sub.SetAnchors.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	'0 - None
+	'1 - Top
+	'2 - Bottom
+	'4 - Left
+	'8 - Right
+
+	Gui.frmMonthlySales.picGssLogo.Anchor(1)
+	Gui.frmMonthlySales.tab1.Anchor(15)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.SetAnchors.End
+
+Program.Sub.SetTabAnchors.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	'0 - None
+	'1 - Top
+	'2 - Bottom
+	'4 - Left
+	'8 - Right
+
+	Gui.frmMonthlySales.GsGCMonthlySales.Anchor(15)
+	Gui.frmMonthlySales.GsGCAccrual.Anchor(15)
+	Gui.frmMonthlySales.GsGCPrevAccrual.Anchor(15)
+	Gui.frmMonthlySales.GsGCOpenInv.Anchor(15)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.Anchor(15)
+	Gui.frmMonthlySales.GsGCInvoice.Anchor(15)	
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.SetTabAnchors.End
+
+Program.Sub.SetContextMenus.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	Gui.frmMonthlySales..ContextMenuCreate("CTXMONTHLY")
+	Gui.frmMonthlySales.GsGCMonthlySales.ContextMenuAttach("CTXMONTHLY")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXMONTHLY","Refresh",0,"Refresh")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXMONTHLY","Export",0,"Export")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXMONTHLY","ResetColumns",0,"Reset Columns")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXMONTHLY","Refresh","LoadRecords")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXMONTHLY","Export","MenuClickExport")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXMONTHLY","ResetColumns","MenuClickResetColumns")
+
+	Gui.frmMonthlySales..ContextMenuCreate("CTXACCRUAL")
+	Gui.frmMonthlySales.GsGCAccrual.ContextMenuAttach("CTXACCRUAL")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXACCRUAL","Refresh",0,"Refresh")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXACCRUAL","Export",0,"Export")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXACCRUAL","ResetColumns",0,"Reset Columns")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXACCRUAL","Refresh","LoadRecords")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXACCRUAL","Export","MenuClickExport")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXACCRUAL","ResetColumns","MenuClickResetColumns")
+	
+	Gui.frmMonthlySales..ContextMenuCreate("CTXPREVACCRUAL")
+	Gui.frmMonthlySales.GsGCPrevAccrual.ContextMenuAttach("CTXPREVACCRUAL")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXPREVACCRUAL","Refresh",0,"Refresh")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXPREVACCRUAL","Export",0,"Export")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXPREVACCRUAL","ResetColumns",0,"Reset Columns")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXPREVACCRUAL","Refresh","LoadRecords")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXPREVACCRUAL","Export","MenuClickExport")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXPREVACCRUAL","ResetColumns","MenuClickResetColumns")	
+	
+	Gui.frmMonthlySales..ContextMenuCreate("CTXOPENINV")
+	Gui.frmMonthlySales.GsGCOpenInv.ContextMenuAttach("CTXOPENINV")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXOPENINV","Refresh",0,"Refresh")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXOPENINV","Export",0,"Export")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXOPENINV","ResetColumns",0,"Reset Columns")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXOPENINV","Refresh","LoadRecords")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXOPENINV","Export","MenuClickExport")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXOPENINV","ResetColumns","MenuClickResetColumns")
+	
+	Gui.frmMonthlySales..ContextMenuCreate("CTXPREVOPENINV")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.ContextMenuAttach("CTXPREVOPENINV")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXPREVOPENINV","Refresh",0,"Refresh")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXPREVOPENINV","Export",0,"Export")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXPREVOPENINV","ResetColumns",0,"Reset Columns")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXPREVOPENINV","Refresh","LoadRecords")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXPREVOPENINV","Export","MenuClickExport")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXPREVOPENINV","ResetColumns","MenuClickResetColumns")
+	
+	Gui.frmMonthlySales..ContextMenuCreate("CTXINVOICE")
+	Gui.frmMonthlySales.GsGCInvoice.ContextMenuAttach("CTXINVOICE")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXINVOICE","Refresh",0,"Refresh")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXINVOICE","Export",0,"Export")
+	Gui.frmMonthlySales..ContextMenuAddItem("CTXINVOICE","ResetColumns",0,"Reset Columns")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXINVOICE","Refresh","LoadRecords")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXINVOICE","Export","MenuClickExport")
+	Gui.frmMonthlySales..ContextMenuSetItemEventHandler("CTXINVOICE","ResetColumns","MenuClickResetColumns")			
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.SetContextMenus.End
+
+Program.Sub.MenuClickExport.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	V.Local.sFileExport.Declare
+	V.Local.bExcel.Declare
+	V.Local.bFileLocked.Declare
+	V.Local.sMsg.Declare
+	V.Local.sControl.Declare
+
+	F.Intrinsic.Control.SelectCase(V.Args.MenuName)
+		F.Intrinsic.Control.Case("CTXMONTHLY")
+		F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+		F.Intrinsic.Control.If(V.Local.bExcel,=,TRUE)
+			F.Intrinsic.String.Build("{0}\GAB_Monthly_Sales_{1}_Export.xlsx",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked,=,TRUE)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.frmMonthlySales.GsGCMonthlySales.Export(V.Local.sFileExport,"xlsx")
+				F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0}\GAB_Monthly_Sales_{1}_Export.csv",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked,=,TRUE)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.frmMonthlySales.GsGCMonthlySales.Export(V.Local.sFileExport,"csv")
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.Control.Case("CTXACCRUAL")
+		F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+		F.Intrinsic.Control.If(V.Local.bExcel,=,TRUE)
+			F.Intrinsic.String.Build("{0}\GAB_Monthly_Sales_{1}_Export.xlsx",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked,=,TRUE)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.frmMonthlySales.GsGCAccrual.Export(V.Local.sFileExport,"xlsx")
+				F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0}\GAB_Monthly_Sales_{1}_Export.csv",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked,=,TRUE)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.frmMonthlySales.GsGCAccrual.Export(V.Local.sFileExport,"csv")
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.Case("CTXPREVACCRUAL")
+		F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+		F.Intrinsic.Control.If(V.Local.bExcel,=,TRUE)
+			F.Intrinsic.String.Build("{0}\GAB_Monthly_Sales_{1}_Export.xlsx",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked,=,TRUE)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.frmMonthlySales.GsGCPrevAccrual.Export(V.Local.sFileExport,"xlsx")
+				F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0}\GAB_Monthly_Sales_{1}_Export.csv",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked,=,TRUE)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.frmMonthlySales.GsGCPrevAccrual.Export(V.Local.sFileExport,"csv")
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.Case("CTXOPENINV")
+		F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+		F.Intrinsic.Control.If(V.Local.bExcel,=,TRUE)
+			F.Intrinsic.String.Build("{0}\GAB_Monthly_Sales_{1}_Export.xlsx",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked,=,TRUE)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.frmMonthlySales.GsGCOpenInv.Export(V.Local.sFileExport,"xlsx")
+				F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0}\GAB_Monthly_Sales_{1}_Export.csv",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked,=,TRUE)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.frmMonthlySales.GsGCOpenInv.Export(V.Local.sFileExport,"csv")
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.Case("CTXPREVOPENINV")
+		F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+		F.Intrinsic.Control.If(V.Local.bExcel,=,TRUE)
+			F.Intrinsic.String.Build("{0}\GAB_Monthly_Sales_{1}_Export.xlsx",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked,=,TRUE)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.frmMonthlySales.GsGCPrevOpenInv.Export(V.Local.sFileExport,"xlsx")
+				F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0}\GAB_Monthly_Sales_{1}_Export.csv",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked,=,TRUE)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.frmMonthlySales.GsGCPrevOpenInv.Export(V.Local.sFileExport,"csv")
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.Case("CTXINVOICE")
+		F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+		F.Intrinsic.Control.If(V.Local.bExcel,=,TRUE)
+			F.Intrinsic.String.Build("{0}\GAB_Monthly_Sales_{1}_Export.xlsx",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked,=,TRUE)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.frmMonthlySales.GsGCInvoice.Export(V.Local.sFileExport,"xlsx")
+				F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0}\GAB_Monthly_Sales_{1}_Export.csv",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+			F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+			F.Intrinsic.Control.If(V.Local.bFileLocked,=,TRUE)
+				F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+			F.Intrinsic.Control.Else
+				Gui.frmMonthlySales.GsGCInvoice.Export(V.Local.sFileExport,"csv")
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		F.Intrinsic.Control.EndIf						
+	F.Intrinsic.Control.EndSelect	
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.MenuClickExport.End
+
+Program.Sub.MenuClickResetColumns.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	V.Local.bSerialize.Declare
+
+	F.Intrinsic.Control.SelectCase(V.Args.MenuName)
+		F.Intrinsic.Control.Case("CTXMONTHLY")
+			F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvMonthly",4631,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,"")
+		F.Intrinsic.Control.Case("CTXACCRUAL")
+			F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvAccrual",4631,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,"")
+		F.Intrinsic.Control.Case("CTXPREVACCRUAL")
+			F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvPrevAccrual",4631,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,"")
+		F.Intrinsic.Control.Case("CTXOPENINV")
+			F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvOpenInv",4631,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,"")
+		F.Intrinsic.Control.Case("CTXPREVOPENINV")
+			F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvPrevOpenInv",4631,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,"")
+		F.Intrinsic.Control.Case("CTXINVOICE")
+			F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvInvoice",4631,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,"")			
+	F.Intrinsic.Control.EndSelect
+	
+	V.Global.bLoadDate.Set(False)
+	F.Intrinsic.Control.CallSub(LoadRecords)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.MenuClickResetColumns.End
+
+Program.Sub.LoadRecords.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	V.Local.sSQL.Declare
+	V.Local.dBegDate.Declare
+	V.Local.dEndDate.Declare
+	V.Local.sPart.Declare
+	V.Local.sAccrual.Declare
+	V.Local.sPrevAccrual.Declare
+	V.Local.sOpenInv.Declare
+	V.Local.sPrevOpenInv.Declare
+	V.Local.sInvoice.Declare
+	V.Local.sActiveFilterString.Declare
+	V.Local.fBreak.Declare
+	V.Local.iMonth.Declare
+	V.Local.iYear.Declare
+	V.Local.iPrevYear.Declare
+	V.Local.iPrevMonth.Declare
+	V.Local.iPrevSYear.Declare
+	V.Local.iMonth2.Declare
+	V.Local.iYear2.Declare
+	V.Local.iPrevYear2.Declare
+	V.Local.iPrevMonth2.Declare
+	V.Local.iPrevSYear2.Declare
+	V.Local.iMonth3.Declare
+	V.Local.iYear3.Declare
+	V.Local.iPrevYear3.Declare
+	V.Local.iPrevMonth3.Declare
+	V.Local.iPrevSYear3.Declare
+	V.Local.iMonth4.Declare
+	V.Local.iYear4.Declare
+	V.Local.iPrevYear4.Declare
+	V.Local.iPrevMonth4.Declare
+	V.Local.iPrevSYear4.Declare	
+
+	Gui.frmMonthlySales.lblStatus.Visible(True)
+	Gui.frmMonthlySales.pbStatus.Visible(True)
+	Gui.frmMonthlySales.pbStatus.Min(0)
+	Gui.frmMonthlySales.pbStatus.Max(100)
+	
+	'Gui.frmMonthlySales..Visible(False)
+
+	F.Intrinsic.Control.If(V.Global.bLoadDate)
+		F.Intrinsic.Control.CallSub(Serialize)
+	F.Intrinsic.Control.EndIf
+	V.Global.bLoadDate.Set(True)
+
+	F.Intrinsic.Control.If(V.DataTable.dtMonthlySales.Exists)
+		F.Data.DataTable.Close("dtMonthlySales")	
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.If(V.DataTable.dtAccrual.Exists)
+		F.Data.DataTable.Close("dtAccrual")	
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.DataTable.dtPrevAccrual.Exists)
+		F.Data.DataTable.Close("dtPrevAccrual")	
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.DataTable.dtOpenInv.Exists)
+		F.Data.DataTable.Close("dtOpenInv")	
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.If(V.DataTable.dtPrevOpenInv.Exists)
+		F.Data.DataTable.Close("dtPrevOpenInv")	
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.If(V.DataTable.dtInvoice.Exists)
+		F.Data.DataTable.Close("dtInvoice")	
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.Dictionary.CreateFromSQL("dCustomer","con","SELECT CUSTOMER, NAME_CUSTOMER AS NAME_CUST FROM V_CUSTOMER_MASTER ORDER BY CUSTOMER;")
+	F.Data.Dictionary.SetDefaultReturn("dCustomer","")		
+
+	V.Local.dEndDate.Set(V.Screen.frmMonthlySales!dtpDate.Value)
+	V.Local.iMonth.Set(V.Screen.frmMonthlySales!ddlMonth.Text)
+	V.Local.iYear.Set(V.Screen.frmMonthlySales!ddlYear.Text)
+	
+	F.Intrinsic.Control.If(V.Local.iMonth,=,1)
+		V.Local.iPrevMonth.Set(12)
+		F.Intrinsic.Math.Sub(V.Local.iYear,1,V.Local.iPrevYear)
+		F.Intrinsic.Math.Sub(V.Local.iPrevYear,1,V.Local.iPrevSYear)
+
+		V.Local.iMonth2.Set(V.Local.iPrevMonth)
+		F.Intrinsic.Math.Sub(V.Local.iMonth2,1,V.Local.iPrevMonth2)
+		V.Local.iYear2.Set(V.Local.iPrevYear)
+		F.Intrinsic.Math.Sub(V.Local.iYear2,1,V.Local.iPrevYear2)
+
+		F.Intrinsic.Math.Sub(V.Local.iMonth2,1,V.Local.iMonth3)
+		F.Intrinsic.Math.Sub(V.Local.iPrevMonth2,1,V.Local.iPrevMonth3)
+		V.Local.iYear3.Set(V.Local.iYear2)
+		V.Local.iPrevYear3.Set(V.Local.iPrevYear2)
+		
+		F.Intrinsic.Math.Sub(V.Local.iMonth3,1,V.Local.iMonth4)
+		F.Intrinsic.Math.Sub(V.Local.iPrevMonth3,1,V.Local.iPrevMonth4)
+		V.Local.iYear4.Set(V.Local.iYear3)
+		V.Local.iPrevYear4.Set(V.Local.iPrevYear3)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Math.Sub(V.Local.iMonth,1,V.Local.iPrevMonth)
+		F.Intrinsic.Math.Sub(V.Local.iYear,1,V.Local.iPrevYear)
+
+		V.Local.iMonth2.Set(V.Local.iPrevMonth)
+		F.Intrinsic.Control.If(V.Local.iMonth2,=,1)
+			V.Local.iPrevMonth2.Set(12)
+			V.Local.iYear2.Set(V.Local.iYear)
+			F.Intrinsic.Math.Sub(V.Local.iYear2,1,V.Local.iPrevYear2)
+
+			V.Local.iMonth3.Set(V.Local.iPrevMonth2)
+			F.Intrinsic.Math.Sub(V.Local.iMonth3,1,V.Local.iPrevMonth3)
+			F.Intrinsic.Math.Sub(V.Local.iYear2,1,V.Local.iYear3)
+			F.Intrinsic.Math.Sub(V.Local.iYear3,1,V.Local.iPrevYear3)
+
+			F.Intrinsic.Math.Sub(V.Local.iMonth3,1,V.Local.iMonth4)
+			F.Intrinsic.Math.Sub(V.Local.iPrevMonth3,1,V.Local.iPrevMonth4)
+			V.Local.iYear4.Set(V.Local.iYear3)
+			V.Local.iPrevYear4.Set(V.Local.iPrevYear3)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Math.Sub(V.Local.iMonth2,1,V.Local.iPrevMonth2)
+			V.Local.iYear2.Set(V.Local.iYear)
+			V.Local.iPrevYear2.Set(V.Local.iPrevYear)
+			
+			V.Local.iMonth3.Set(V.Local.iPrevMonth2)
+			F.Intrinsic.Control.If(V.Local.iMonth3,=,1)
+				V.Local.iPrevMonth3.Set(12)
+				V.Local.iYear3.Set(V.Local.iYear2)
+				F.Intrinsic.Math.Sub(V.Local.iYear3,1,V.Local.iPrevYear3)
+	
+				V.Local.iMonth4.Set(V.Local.iPrevMonth3)
+				F.Intrinsic.Math.Sub(V.Local.iMonth4,1,V.Local.iPrevMonth4)
+				F.Intrinsic.Math.Sub(V.Local.iYear3,1,V.Local.iYear4)
+				F.Intrinsic.Math.Sub(V.Local.iYear4,1,V.Local.iPrevYear4)
+
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Math.Sub(V.Local.iMonth3,1,V.Local.iPrevMonth3)
+				V.Local.iYear3.Set(V.Local.iYear2)
+				V.Local.iPrevYear3.Set(V.Local.iPrevYear2)
+			
+				V.Local.iMonth4.Set(V.Local.iPrevMonth3)
+				F.Intrinsic.Math.Sub(V.Local.iMonth4,1,V.Local.iPrevMonth4)
+				V.Local.iYear4.Set(V.Local.iYear3)
+				V.Local.iPrevYear4.Set(V.Local.iPrevYear3)
+				F.Intrinsic.Math.Sub(V.Local.iPrevYear4,1,V.Local.iPrevSYear4)
+			F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.EndIf		
+		
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.String.Build("SELECT A.CUSTOMER, B.C_SORT_1 AS CUST_GROUP, SUM(CASE WHEN (MONTH(CONVERT(DATE_SHIP,SQL_DATE)) <= {0} AND YEAR(CONVERT(DATE_SHIP,SQL_DATE)) = {1}) OR (YEAR(CONVERT(DATE_SHIP,SQL_DATE)) <= {2}) THEN A.EXTENSION ELSE 0 END) AS ACCRUAL, SUM(CASE WHEN (MONTH(CONVERT(DATE_SHIP,SQL_DATE)) <= {3} AND YEAR(CONVERT(DATE_SHIP,SQL_DATE)) = {4}) OR (YEAR(CONVERT(DATE_SHIP,SQL_DATE)) <= {5}) THEN A.EXTENSION ELSE 0 END) AS ACCRUAL2, SUM(CASE WHEN (MONTH(CONVERT(DATE_SHIP,SQL_DATE)) <= {6} AND YEAR(CONVERT(DATE_SHIP,SQL_DATE)) = {7}) OR (YEAR(CONVERT(DATE_SHIP,SQL_DATE)) <= {8}) THEN A.EXTENSION ELSE 0 END) AS ACCRUAL3, cast(coalesce(null,'0') as float) AS PREV_ACCRUAL, cast(coalesce(null,'0') as float) AS PREV_ACCRUAL2, cast(coalesce(null,'0') as float) AS PREV_ACCRUAL3, cast(coalesce(null,'0') as float) AS OPEN_INV, cast(coalesce(null,'0') as float) AS OPEN_INV2, cast(coalesce(null,'0') as float) AS OPEN_INV3, cast(coalesce(null,'0') as float) AS PREV_OPEN_INV, cast(coalesce(null,'0') as float) AS PREV_OPEN_INV2, cast(coalesce(null,'0') as float) AS PREV_OPEN_INV3, cast(coalesce(null,'0') as float) AS INV, cast(coalesce(null,'0') as float) AS INV2, cast(coalesce(null,'0') as float) AS INV3 FROM V_SHIPMENT_LINES A LEFT JOIN V_CUSTOMER_SALES B ON A.CUSTOMER = B.CUSTOMER WHERE A.PART <> 'PROGRESS' AND INVOICE = '' AND A.CUSTOMER NOT LIKE 'Z%' AND (A.PRODUCT_LINE <> 'ZZ' AND A.PRODUCT_LINE <> 'MG') AND ((Month(DATE_SHIP) <= {0} AND year(DATE_SHIP) = {1})OR (year(DATE_SHIP) <= {2})) GROUP BY A.CUSTOMER, B.C_SORT_1",V.Local.iMonth,V.Local.iYear,V.Local.iPrevYear,V.Local.iMonth2,V.Local.iYear2,V.Local.iPrevYear2,V.Local.iMonth3,V.Local.iYear3,V.Local.iPrevYear3,V.Local.sAccrual)
+	F.Intrinsic.String.Build("SELECT A.CUSTOMER, B.C_SORT_1 AS CUST_GROUP, cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), SUM(CASE WHEN (MONTH(CONVERT(DATE_SHIP,SQL_DATE)) <= {0} AND YEAR(CONVERT(DATE_SHIP,SQL_DATE)) = {1}) OR (YEAR(CONVERT(DATE_SHIP,SQL_DATE)) <= {2}) THEN A.EXTENSION ELSE 0 END), SUM(CASE WHEN (MONTH(CONVERT(DATE_SHIP,SQL_DATE)) <= {3} AND YEAR(CONVERT(DATE_SHIP,SQL_DATE)) = {4}) OR (YEAR(CONVERT(DATE_SHIP,SQL_DATE)) <= {5}) THEN A.EXTENSION ELSE 0 END), SUM(CASE WHEN (MONTH(CONVERT(DATE_SHIP,SQL_DATE)) <= {6} AND YEAR(CONVERT(DATE_SHIP,SQL_DATE)) = {7}) OR (YEAR(CONVERT(DATE_SHIP,SQL_DATE)) <= {8}) THEN A.EXTENSION ELSE 0 END), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float) FROM V_SHIPMENT_LINES A LEFT JOIN V_CUSTOMER_SALES B ON A.CUSTOMER = B.CUSTOMER WHERE A.PART <> 'PROGRESS' AND A.INVOICE = '' AND A.CUSTOMER NOT LIKE 'Z%' AND (A.PRODUCT_LINE <> 'ZZ' AND A.PRODUCT_LINE <> 'MG') AND ((Month(DATE_SHIP) <= {0} AND year(DATE_SHIP) = {1})OR (year(DATE_SHIP) <= {2})) GROUP BY A.CUSTOMER, B.C_SORT_1",V.Local.iMonth2,V.Local.iYear2,V.Local.iPrevYear2,V.Local.iMonth3,V.Local.iYear3,V.Local.iPrevYear3,V.Local.iMonth4,V.Local.iYear4,V.Local.iPrevYear4,V.Local.sPrevAccrual)
+	F.Intrinsic.String.Build("SELECT A.CUSTOMER, B.C_SORT_1 AS CUST_GROUP, cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), SUM(CASE WHEN (MONTH(CONVERT(DATE_SHIP,SQL_DATE)) <= {0} AND YEAR(CONVERT(DATE_SHIP,SQL_DATE)) = {1}) OR (YEAR(CONVERT(DATE_SHIP,SQL_DATE)) <= {2}) THEN A.EXTENSION ELSE 0 END), SUM(CASE WHEN (MONTH(CONVERT(DATE_SHIP,SQL_DATE)) <= {3} AND YEAR(CONVERT(DATE_SHIP,SQL_DATE)) = {4}) OR (YEAR(CONVERT(DATE_SHIP,SQL_DATE)) <= {5}) THEN A.EXTENSION ELSE 0 END), SUM(CASE WHEN (MONTH(CONVERT(DATE_SHIP,SQL_DATE)) <= {6} AND YEAR(CONVERT(DATE_SHIP,SQL_DATE)) = {7}) OR (YEAR(CONVERT(DATE_SHIP,SQL_DATE)) <= {8}) THEN A.EXTENSION ELSE 0 END), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float) FROM V_SHIPMENT_LINES A LEFT JOIN V_CUSTOMER_SALES B ON A.CUSTOMER = B.CUSTOMER LEFT JOIN INV_BATCH_CTRL C ON A.IVC_BATCH = C.NUMBER WHERE A.PART <> 'PROGRESS' AND A.CUSTOMER NOT LIKE 'Z%' AND A.INVOICE <> '' AND (A.PRODUCT_LINE <> 'ZZ' AND A.PRODUCT_LINE <> 'MG') AND Rtrim(Invoice)+A.ORDER_NO+A.ORDER_SUFFIX+A.ORDER_REC Not In (Select Concat(RTRIM(Y.Invoice),concat(Y.ORDER_NO,Concat(Y.ORDER_SUFFIX,Y.ORDER_LINE))) as invoice_num From V_Order_Hist_Line y) AND ((MONTH(DATE_SHIP) <= {0} AND YEAR(DATE_SHIP) = {1}) OR (YEAR(DATE_SHIP) <= {2})) GROUP BY A.CUSTOMER, B.C_SORT_1",V.Local.iMonth,V.Local.iYear,V.Local.iPrevYear,V.Local.iMonth2,V.Local.iYear2,V.Local.iPrevYear2,V.Local.iMonth3,V.Local.iYear3,V.Local.iPrevYear3,V.Local.sOpenInv)
+	F.Intrinsic.String.Build("SELECT A.CUSTOMER, B.C_SORT_1 AS CUST_GROUP, cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), SUM(CASE WHEN (MONTH(CONVERT(DATE_SHIP,SQL_DATE)) <= {0} AND YEAR(CONVERT(DATE_SHIP,SQL_DATE)) = {1}) OR (YEAR(CONVERT(DATE_SHIP,SQL_DATE)) <= {2}) THEN A.EXTENSION ELSE 0 END), SUM(CASE WHEN (MONTH(CONVERT(DATE_SHIP,SQL_DATE)) <= {3} AND YEAR(CONVERT(DATE_SHIP,SQL_DATE)) = {4}) OR (YEAR(CONVERT(DATE_SHIP,SQL_DATE)) <= {5}) THEN A.EXTENSION ELSE 0 END), SUM(CASE WHEN (MONTH(CONVERT(DATE_SHIP,SQL_DATE)) <= {6} AND YEAR(CONVERT(DATE_SHIP,SQL_DATE)) = {7}) OR (YEAR(CONVERT(DATE_SHIP,SQL_DATE)) <= {8}) THEN A.EXTENSION ELSE 0 END), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float) FROM V_SHIPMENT_LINES A LEFT JOIN V_CUSTOMER_SALES B ON A.CUSTOMER = B.CUSTOMER LEFT JOIN INV_BATCH_CTRL C ON A.IVC_BATCH = C.NUMBER WHERE A.PART <> 'PROGRESS' AND A.CUSTOMER NOT LIKE 'Z%' AND A.INVOICE <> '' AND (A.PRODUCT_LINE <> 'ZZ' AND A.PRODUCT_LINE <> 'MG') AND Rtrim(Invoice)+A.ORDER_NO+A.ORDER_SUFFIX+A.ORDER_REC Not In (Select Concat(RTRIM(Y.Invoice),concat(Y.ORDER_NO,Concat(Y.ORDER_SUFFIX,Y.ORDER_LINE))) as invoice_num From V_Order_Hist_Line y) AND ((MONTH(DATE_SHIP) <= {0} AND YEAR(DATE_SHIP) = {1}) OR (YEAR(DATE_SHIP) <= {2})) GROUP BY A.CUSTOMER, B.C_SORT_1",V.Local.iMonth2,V.Local.iYear2,V.Local.iPrevYear2,V.Local.iMonth3,V.Local.iYear3,V.Local.iPrevYear3,V.Local.iMonth4,V.Local.iYear4,V.Local.iPrevYear4,V.Local.sPrevOpenInv)
+'	F.Intrinsic.String.Build("SELECT A.CUSTOMER, B.C_SORT_1 AS CUST_GROUP, A.PRODUCT_LINE, cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), SUM(CASE WHEN (MONTH(DATE_INVOICE) >= {0} OR YEAR(DATE_INVOICE) >= {1}) AND (MONTH(DATE_INVOICE) <= {2} AND YEAR(DATE_INVOICE) <= {3}) THEN A.EXTENSION ELSE 0 END) FROM V_ORDER_HIST_LINE A LEFT JOIN V_CUSTOMER_SALES B ON A.CUSTOMER = B.CUSTOMER WHERE A.CUSTOMER NOT LIKE 'Z%' AND A.PART <> 'PROGRESS' AND (MONTH(DATE_INVOICE) >= {0} AND YEAR(DATE_INVOICE) >= {1}) AND (MONTH(DATE_INVOICE) <= {2} OR YEAR(DATE_INVOICE) <= {3}) GROUP BY A.PRODUCT_LINE, A.CUSTOMER, B.C_SORT_1",V.Local.iPrevMonth,V.Local.iPrevYear,V.Local.iMonth,V.Local.iYear,V.Local.sInvoice)
+'	F.Intrinsic.String.Build("SELECT A.CUSTOMER, B.C_SORT_1 AS CUST_GROUP, A.PRODUCT_LINE, cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), SUM(CASE WHEN (MONTH(CONVERT(DATE_INVOICE,SQL_DATE)) = {2} AND YEAR(CONVERT(DATE_INVOICE,SQL_DATE)) = {3}) THEN A.EXTENSION ELSE 0 END) FROM V_ORDER_HIST_LINE A LEFT JOIN V_CUSTOMER_SALES B ON A.CUSTOMER = B.CUSTOMER WHERE A.CUSTOMER NOT LIKE 'Z%' AND A.PART <> 'PROGRESS' AND (A.PRODUCT_LINE <> 'ZZ' AND A.PRODUCT_LINE <> 'MG') AND (MONTH(DATE_INVOICE) = {2} AND YEAR(DATE_INVOICE) = {3}) GROUP BY A.PRODUCT_LINE, A.CUSTOMER, B.C_SORT_1",V.Local.iPrevMonth,V.Local.iPrevYear,V.Local.iMonth,V.Local.iYear,V.Local.sInvoice)
+	F.Intrinsic.String.Build("SELECT A.CUST, B.C_SORT_1 as CUST_GROUP, cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), cast(coalesce(null,'0') as float), -1*SUM(CASE WHEN (MONTH(POST_DATE_SQL) = {0} AND YEAR(POST_DATE_SQL) = {1}) THEN A.AMOUNT_CMPNY ELSE 0 END) AS INV, -1*SUM(CASE WHEN (MONTH(POST_DATE_SQL) = {2} AND YEAR(POST_DATE_SQL) = {3}) THEN A.AMOUNT_CMPNY ELSE 0 END) AS INV2, -1*SUM(CASE WHEN (MONTH(POST_DATE_SQL) = {4} AND YEAR(POST_DATE_SQL) = {5}) THEN A.AMOUNT_CMPNY ELSE 0 END) AS INV3 FROM V_GL_AR_DETAIL A LEFT JOIN V_CUSTOMER_SALES B ON A.CUST = B.CUSTOMER WHERE GL_NUMBER LIKE 'A3001%' AND A.CUST NOT LIKE 'Z%' AND ((MONTH(POST_DATE_SQL) <= {0} AND YEAR(POST_DATE_SQL) = {1}) OR (YEAR(POST_DATE_SQL) <= {5})) GROUP BY A.CUST, B.C_SORT_1",V.Local.iMonth,V.Local.iYear,V.Local.iMonth2,V.Local.iYear2,V.Local.iMonth3,V.Local.iYear3,V.Local.sInvoice)
+
+	'Find Monthly Sales Records
+	
+	F.Intrinsic.String.Build("SELECT A.CUSTOMER, '' AS NAME_CUST, A.CUST_GROUP, (A.INV+(A.ACCRUAL+A.OPEN_INV)-(A.PREV_ACCRUAL+A.PREV_OPEN_INV)) AS CURRENT_SLS, (A.INV2+(A.ACCRUAL2+A.OPEN_INV2)-(A.PREV_ACCRUAL2+A.PREV_OPEN_INV2)) AS CURRENT_SLS2, (A.INV3+(A.ACCRUAL3+A.OPEN_INV3)-(A.PREV_ACCRUAL3+A.PREV_OPEN_INV3)) AS CURRENT_SLS3 From(SELECT CM.CUSTOMER, CSL.C_SORT_1 AS CUST_GROUP, SUM(R.ACCRUAL) AS ACCRUAL, SUM(R.ACCRUAL2) AS ACCRUAL2, SUM(R.ACCRUAL3) AS ACCRUAL3, SUM(R.PREV_ACCRUAL) AS PREV_ACCRUAL, SUM(R.PREV_ACCRUAL2) AS PREV_ACCRUAL2, SUM(R.PREV_ACCRUAL3) AS PREV_ACCRUAL3, SUM(R.OPEN_INV) AS OPEN_INV, SUM(R.OPEN_INV2) AS OPEN_INV2, SUM(R.OPEN_INV3) AS OPEN_INV3, SUM(R.PREV_OPEN_INV) AS PREV_OPEN_INV, SUM(R.PREV_OPEN_INV2) AS PREV_OPEN_INV2, SUM(R.PREV_OPEN_INV3) AS PREV_OPEN_INV3, SUM(R.INV) AS INV, SUM(R.INV2) AS INV2, SUM(R.INV3) AS INV3 FROM V_CUSTOMER_MASTER CM LEFT JOIN V_CUSTOMER_SALES CSL ON CM.CUSTOMER = CSL.CUSTOMER INNER JOIN ({0} UNION ALL {1} UNION ALL {2} UNION ALL {3} UNION ALL {4}) R ON CM.CUSTOMER = R.CUSTOMER GROUP BY CM.CUSTOMER, CSL.C_SORT_1) A;",V.Local.sAccrual,V.Local.sPrevAccrual,V.Local.sOpenInv,V.Local.sPrevOpenInv,V.Local.sInvoice,V.Local.sSQL)
+'	F.Intrinsic.Debug.ShowCallerInfo
+	F.Data.DataTable.CreateFromSQL("dtMonthlySales","con",V.Local.sSQL,True)
+	F.Data.DataTable.FillFromDictionary("dtMonthlySales","dCustomer","CUSTOMER","NAME_CUST")
+
+	Gui.frmMonthlySales.pbStatus.Value(10)
+
+	'Find Current Accrual (Ship not Invoiced) Records
+
+	F.Intrinsic.String.Build("SELECT A.CUSTOMER, '' AS NAME_CUST, B.C_SORT_1 AS CUST_GROUP, A.ORDER_NO, A.ORDER_SUFFIX, A.ORDER_REC, A.DATE_SHIP, A.PART, A.ORDER_DESC, A.PRODUCT_LINE, A.EXTENSION FROM V_SHIPMENT_LINES A LEFT JOIN V_CUSTOMER_SALES B ON A.CUSTOMER = B.CUSTOMER WHERE A.PART <> 'PROGRESS' AND A.INVOICE = '' AND A.CUSTOMER NOT LIKE 'Z%' AND (A.PRODUCT_LINE <> 'ZZ' AND A.PRODUCT_LINE <> 'MG') AND ((Month(DATE_SHIP) <= {0} AND year(DATE_SHIP) = {1})OR (year(DATE_SHIP) <= {2}));",V.Local.iMonth,V.Local.iYear,V.Local.iPrevYear,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtAccrual","con",V.Local.sSQL,True)
+	F.Data.DataTable.FillFromDictionary("dtAccrual","dCustomer","CUSTOMER","NAME_CUST")
+
+	Gui.frmMonthlySales.pbStatus.Value(20)
+
+	'Find Previous Accrual (Ship not Invoiced) Records
+
+	F.Intrinsic.String.Build("SELECT A.CUSTOMER, '' AS NAME_CUST, B.C_SORT_1 AS CUST_GROUP, A.ORDER_NO, A.ORDER_SUFFIX, A.ORDER_REC, A.DATE_SHIP, A.PART, A.ORDER_DESC, A.PRODUCT_LINE, A.EXTENSION FROM V_SHIPMENT_LINES A LEFT JOIN V_CUSTOMER_SALES B ON A.CUSTOMER = B.CUSTOMER WHERE A.PART <> 'PROGRESS' AND A.INVOICE = '' AND A.CUSTOMER NOT LIKE 'Z%' AND (A.PRODUCT_LINE <> 'ZZ' AND A.PRODUCT_LINE <> 'MG') AND ((Month(DATE_SHIP) <= {0} AND year(DATE_SHIP) = {1})OR (year(DATE_SHIP) <= {2}));",V.Local.iPrevMonth,V.Local.iPrevYear,V.Local.iPrevSYear,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtPrevAccrual","con",V.Local.sSQL,True)
+	F.Data.DataTable.FillFromDictionary("dtPrevAccrual","dCustomer","CUSTOMER","NAME_CUST")
+
+	Gui.frmMonthlySales.pbStatus.Value(30)
+	
+	'Find Current Open Invoice Records
+
+	F.Intrinsic.String.Build("SELECT A.CUSTOMER, '' AS NAME_CUST, B.C_SORT_1 AS CUST_GROUP, A.INVOICE, DATE_SHIP as DATE_INV, A.ORDER_NO, A.ORDER_SUFFIX, A.ORDER_REC, A.PART, A.ORDER_DESC, A.PRODUCT_LINE, A.EXTENSION FROM V_SHIPMENT_LINES A LEFT JOIN V_CUSTOMER_SALES B ON A.CUSTOMER = B.CUSTOMER LEFT JOIN INV_BATCH_CTRL C ON A.IVC_BATCH = C.NUMBER WHERE A.PART <> 'PROGRESS' AND A.CUSTOMER NOT LIKE 'Z%' AND A.INVOICE <> '' AND (A.PRODUCT_LINE <> 'ZZ' AND A.PRODUCT_LINE <> 'MG') AND Rtrim(Invoice)+A.ORDER_NO+A.ORDER_SUFFIX+A.ORDER_REC Not In (Select Concat(RTRIM(Y.Invoice),concat(Y.ORDER_NO,Concat(Y.ORDER_SUFFIX,Y.ORDER_LINE))) as invoice_num From V_Order_Hist_Line y) AND ((MONTH(DATE_SHIP) <= {0} AND YEAR(DATE_SHIP) = {1}) OR (YEAR(DATE_SHIP) <= {2}));",V.Local.iMonth,V.Local.iYear,V.Local.iPrevYear,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtOpenInv","con",V.Local.sSQL,True)	
+	F.Data.DataTable.FillFromDictionary("dtOpenInv","dCustomer","CUSTOMER","NAME_CUST")
+
+	Gui.frmMonthlySales.pbStatus.Value(40)
+
+	'Find Previous Open Invoice Records
+
+	F.Intrinsic.String.Build("SELECT A.CUSTOMER, '' AS NAME_CUST, B.C_SORT_1 AS CUST_GROUP, A.INVOICE, DATE_SHIP as DATE_INV, A.ORDER_NO, A.ORDER_SUFFIX, A.ORDER_REC, A.PART, A.ORDER_DESC, A.PRODUCT_LINE, A.EXTENSION FROM V_SHIPMENT_LINES A LEFT JOIN V_CUSTOMER_SALES B ON A.CUSTOMER = B.CUSTOMER LEFT JOIN INV_BATCH_CTRL C ON A.IVC_BATCH = C.NUMBER WHERE A.PART <> 'PROGRESS' AND A.CUSTOMER NOT LIKE 'Z%' AND A.INVOICE <> '' AND (A.PRODUCT_LINE <> 'ZZ' AND A.PRODUCT_LINE <> 'MG') AND Rtrim(Invoice)+A.ORDER_NO+A.ORDER_SUFFIX+A.ORDER_REC Not In (Select Concat(RTRIM(Y.Invoice),concat(Y.ORDER_NO,Concat(Y.ORDER_SUFFIX,Y.ORDER_LINE))) as invoice_num From V_Order_Hist_Line y) AND ((MONTH(DATE_SHIP) <= {0} AND YEAR(DATE_SHIP) = {1}) OR (YEAR(DATE_SHIP) <= {2}));",V.Local.iPrevMonth,V.Local.iPrevYear,V.Local.iPrevSYear,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtPrevOpenInv","con",V.Local.sSQL,True)
+	F.Data.DataTable.FillFromDictionary("dtPrevOpenInv","dCustomer","CUSTOMER","NAME_CUST")
+
+	Gui.frmMonthlySales.pbStatus.Value(50)
+	
+	'Find Invoice Records
+
+'	F.Intrinsic.String.Build("SELECT A.CUSTOMER, '' AS NAME_CUST, B.C_SORT_1 AS CUST_GROUP, A.INVOICE, A.DATE_INVOICE AS DATE_INV, A.ORDER_NO, A.ORDER_SUFFIX, A.ORDER_LINE, A.PART, A.DESCRIPTION, A.PRODUCT_LINE, A.EXTENSION FROM V_ORDER_HIST_LINE A LEFT JOIN V_CUSTOMER_SALES B ON A.CUSTOMER = B.CUSTOMER WHERE A.CUSTOMER NOT LIKE 'Z%' AND A.INVOICE <> '' AND A.PART <> 'PROGRESS' AND (MONTH(DATE_INVOICE) >= {0} AND YEAR(DATE_INVOICE) >= {1}) AND (MONTH(DATE_INVOICE) <= {2} OR YEAR(DATE_INVOICE) <= {3});",V.Local.iPrevMonth,V.Local.iPrevYear,V.Local.iMonth,V.Local.iYear,V.Local.sSQL)
+'	F.Intrinsic.String.Build("SELECT A.CUSTOMER, '' AS NAME_CUST, B.C_SORT_1 AS CUST_GROUP, A.INVOICE, A.DATE_INVOICE AS DATE_INV, A.ORDER_NO, A.ORDER_SUFFIX, A.ORDER_LINE, A.PART, A.DESCRIPTION, A.PRODUCT_LINE, A.EXTENSION FROM V_ORDER_HIST_LINE A LEFT JOIN V_CUSTOMER_SALES B ON A.CUSTOMER = B.CUSTOMER WHERE A.CUSTOMER NOT LIKE 'Z%' AND A.INVOICE <> '' AND A.PART <> 'PROGRESS' AND (A.PRODUCT_LINE <> 'ZZ' AND A.PRODUCT_LINE <> 'MG') AND (MONTH(DATE_INVOICE) = {2} AND YEAR(DATE_INVOICE) = {3});",V.Local.iPrevMonth,V.Local.iPrevYear,V.Local.iMonth,V.Local.iYear,V.Local.sSQL)
+	F.Intrinsic.String.Build("Select Cast(cust as CHAR(6)) as CUSTOMER, CAST(' ' as CHAR(30)) AS NAME_CUST, B.C_SORT_1 AS CUST_GROUP, invoice_no AS INVOICE, cast(A.POST_DATE_SQL as DATE)  AS DATE_INV, order_num AS ORDER_NO, CAST('0000' as CHAR(4)) AS ORDER_SUFFIX, CAST('0000' as CHAR(4)) AS ORDER_LINE,  CAST(' ' as CHAR(20)) AS PART, CAST(' ' as CHAR(30)) AS DESCRIPTION,  CAST(' ' as CHAR(2)) AS PRODUCT_LINE, -1*amount_cmpny AS EXTENSION From V_GL_AR_Detail A LEFT JOIN V_CUSTOMER_SALES B ON A.CUST = B.CUSTOMER Where GL_Number Like 'A3001%' AND A.CUST NOT LIKE 'Z%' AND (MONTH(POST_DATE_SQL) = {2} AND YEAR(POST_DATE_SQL) = {3});",V.Local.iPrevMonth,V.Local.iPrevYear,V.Local.iMonth,V.Local.iYear,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtInvoice","con",V.Local.sSQL,True)	
+	F.Data.DataTable.FillFromDictionary("dtInvoice","dCustomer","CUSTOMER","NAME_CUST")
+
+	F.Data.Dictionary.Close("dCustomer")
+
+	Gui.frmMonthlySales.pbStatus.Value(90)
+	F.Intrinsic.Control.CallSub(loadgvMonthly)
+	F.Intrinsic.Control.CallSub(LoadgvAccrual)
+	F.Intrinsic.Control.CallSub(loadgvprevaccrual)
+	F.Intrinsic.Control.CallSub(loadgvopeninvoice)
+	F.Intrinsic.Control.CallSub(loadgvprevopeninvoice)
+	F.Intrinsic.Control.CallSub(loadgvinvoice)
+	F.Intrinsic.Control.CallSub(Deserialize)
+	Gui.frmMonthlySales.pbStatus.Value(100)
+	Gui.frmMonthlySales.lblStatus.Visible(False)
+	Gui.frmMonthlySales.pbStatus.Visible(False)
+	
+	'Gui.frmMonthlySales..Visible(True)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadRecords.End
+
+Program.Sub.LoadgvMonthly.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	Gui.frmMonthlySales.GsGCMonthlySales.AddGridviewFromDatatable("gvMonthly","dtMonthlySales")
+	Gui.frmMonthlySales.GsGCMonthlySales.SuspendLayout()
+	Gui.frmMonthlySales.GsGCMonthlySales.SetGridViewProperty("gvMonthly","MultiSelect",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetGridViewProperty("gvMonthly","AllowSort",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetGridViewProperty("gvMonthly","AllowFilter",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetGridViewProperty("gvMonthly","ShowGroupPanel",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetGridViewProperty("gvMonthly","EnableAppearanceOddRow",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetGridViewProperty("gvMonthly","OptionsViewColumnAutoWidth",False)
+
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUSTOMER","VisibleIndex","0")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","NAME_CUST","VisibleIndex","1")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUST_GROUP","VisibleIndex","2")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PRODUCT_LINE","VisibleIndex","3")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","ACCRUAL","VisibleIndex","4")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_ACCRUAL","VisibleIndex","5")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","OPEN_INV","VisibleIndex","6")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_OPEN_INV","VisibleIndex","7")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","INV","VisibleIndex","8")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS","VisibleIndex","4")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","LAST_Month_SLS","VisibleIndex","5")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","SCND_Month_SLS","VisibleIndex","6")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","TRD_Month_SLS","VisibleIndex","7")
+
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUSTOMER","Caption","Customer")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","NAME_CUST","Caption","Customer Name")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUST_GROUP","Caption","Group")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PRODUCT_LINE","Caption","PL")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","ACCRUAL","Caption","Accrual")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_ACCRUAL","Caption","Previous Accrual")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","OPEN_INV","Caption","Open Invoice")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_OPEN_INV","Caption","Prev. Open Invoice")			
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","INV","Caption","Invoice")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS","Caption","Sales This Month")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS2","Caption","Sales Last Month")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS3","Caption","Sales Last 2 Months")
+
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUSTOMER","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","NAME_CUST","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUST_GROUP","AllowEdit",False)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PRODUCT_LINE","AllowEdit",False)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","ACCRUAL","AllowEdit",False)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_ACCRUAL","AllowEdit",False)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","OPEN_INV","AllowEdit",False)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_OPEN_INV","AllowEdit",False)			
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","INV","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS2","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS3","AllowEdit",False)
+
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUSTOMER","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","NAME_CUST","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUST_GROUP","ReadOnly",True)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PRODUCT_LINE","ReadOnly",True)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","ACCRUAL","ReadOnly",True)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_ACCRUAL","ReadOnly",True)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","OPEN_INV","ReadOnly",True)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_OPEN_INV","ReadOnly",True)			
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","INV","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS2","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS3","ReadOnly",True)
+
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUSTOMER","MinWidth","50")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","NAME_CUST","MinWidth","200")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUST_GROUP","MinWidth","150")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PRODUCT_LINE","MinWidth","50")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","ACCRUAL","MinWidth","150")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_ACCRUAL","MinWidth","150")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","OPEN_INV","MinWidth","150")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_OPEN_INV","MinWidth","150")			
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","INV","MinWidth","150")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS","MinWidth","150")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS2","MinWidth","150")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS3","MinWidth","150")
+
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUSTOMER","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","NAME_CUST","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUST_GROUP","HeaderFontBold",True)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PRODUCT_LINE","HeaderFontBold",True)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","ACCRUAL","HeaderFontBold",True)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_ACCRUAL","HeaderFontBold",True)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","OPEN_INV","HeaderFontBold",True)
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_OPEN_INV","HeaderFontBold",True)			
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","INV","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS2","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS3","HeaderFontBold",True)
+
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUSTOMER","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","NAME_CUST","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUST_GROUP","HeaderHAlignment","Center")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PRODUCT_LINE","HeaderHAlignment","Center")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","ACCRUAL","HeaderHAlignment","Center")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_ACCRUAL","HeaderHAlignment","Center")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","OPEN_INV","HeaderHAlignment","Center")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_OPEN_INV","HeaderHAlignment","Center")			
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","INV","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS2","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS3","HeaderHAlignment","Center")
+
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CUSTOMER","CellHAlignment","Center")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PRODUCT_LINE","CellHAlignment","Center")
+
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","ACCRUAL","DisplayCustomNumeric","#,###,##0.00####")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_ACCRUAL","DisplayCustomNumeric","#,###,##0.00####")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","OPEN_INV","DisplayCustomNumeric","#,###,##0.00####")
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","PREV_OPEN_INV","DisplayCustomNumeric","#,###,##0.00####")			
+'	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","INV","DisplayCustomNumeric","#,###,##0.00####")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS","DisplayCustomNumeric","#,###,##0.00####")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS2","DisplayCustomNumeric","#,###,##0.00####")
+	Gui.frmMonthlySales.GsGCMonthlySales.SetColumnProperty("gvMonthly","CURRENT_SLS3","DisplayCustomNumeric","#,###,##0.00####")
+
+'	Gui.frmMonthlySales.GsGCMonthlySales.AddSummaryItem("gvMonthly","ACCRUAL","","SUM","","","n")
+'	Gui.frmMonthlySales.GsGCMonthlySales.AddSummaryItem("gvMonthly","PREV_ACCRUAL","","SUM","","","n")
+'	Gui.frmMonthlySales.GsGCMonthlySales.AddSummaryItem("gvMonthly","OPEN_INV","","SUM","","","n")
+'	Gui.frmMonthlySales.GsGCMonthlySales.AddSummaryItem("gvMonthly","PREV_OPEN_INV","","SUM","","","n")
+'	Gui.frmMonthlySales.GsGCMonthlySales.AddSummaryItem("gvMonthly","INV","","SUM","","","n")
+	Gui.frmMonthlySales.GsGCMonthlySales.AddSummaryItem("gvMonthly","CURRENT_SLS","","SUM","","","n")
+	Gui.frmMonthlySales.GsGCMonthlySales.AddSummaryItem("gvMonthly","CURRENT_SLS2","","SUM","","","n")
+	Gui.frmMonthlySales.GsGCMonthlySales.AddSummaryItem("gvMonthly","CURRENT_SLS3","","SUM","","","n")
+
+	Gui.frmMonthlySales.GsGCMonthlySales.ResumeLayout()
+	Gui.frmMonthlySales.GsGCMonthlySales.MainView("gvMonthly")
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadgvMonthly.End
+
+Program.Sub.LoadgvAccrual.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	Gui.frmMonthlySales.GsGCAccrual.AddGridviewFromDatatable("gvAccrual","dtAccrual")
+	Gui.frmMonthlySales.GsGCAccrual.SuspendLayout()
+	Gui.frmMonthlySales.GsGCAccrual.SetGridViewProperty("gvAccrual","MultiSelect",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetGridViewProperty("gvAccrual","AllowSort",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetGridViewProperty("gvAccrual","AllowFilter",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetGridViewProperty("gvAccrual","ShowGroupPanel",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetGridViewProperty("gvAccrual","EnableAppearanceOddRow",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetGridViewProperty("gvAccrual","OptionsViewColumnAutoWidth",False)
+
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUSTOMER","VisibleIndex","0")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","NAME_CUST","VisibleIndex","1")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUST_GROUP","VisibleIndex","2")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","DATE_SHIP","VisibleIndex","3")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_NO","VisibleIndex","4")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_SUFFIX","VisibleIndex","5")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_REC","VisibleIndex","6")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PART","VisibleIndex","7")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_DESC","VisibleIndex","8")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PRODUCT_LINE","VisibleIndex","9")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","EXTENSION","VisibleIndex","10")
+
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUSTOMER","Caption","Customer")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","NAME_CUST","Caption","Customer Name")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUST_GROUP","Caption","Group")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","DATE_SHIP","Caption","Date")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_NO","Caption","Order Number")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_SUFFIX","Caption","Suffix")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_REC","Caption","Line")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PART","Caption","Part")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_DESC","Caption","Description")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PRODUCT_LINE","Caption","PL")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","EXTENSION","Caption","Amount")
+
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUSTOMER","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","NAME_CUST","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUST_GROUP","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","DATE_SHIP","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_NO","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_SUFFIX","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_REC","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PART","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_DESC","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","DATE_SHIP","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PRODUCT_LINE","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","EXTENSION","AllowEdit",False)
+
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUSTOMER","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","NAME_CUST","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUST_GROUP","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","DATE_SHIP","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_NO","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_SUFFIX","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_REC","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PART","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_DESC","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PRODUCT_LINE","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","EXTENSION","ReadOnly",True)
+
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUSTOMER","MinWidth","50")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","NAME_CUST","MinWidth","200")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUST_GROUP","MinWidth","150")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","DATE_SHIP","MinWidth","100")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_NO","MinWidth","100")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_SUFFIX","MinWidth","100")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_REC","MinWidth","100")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PART","MinWidth","150")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_DESC","MinWidth","200")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PRODUCT_LINE","MinWidth","30")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","EXTENSION","MinWidth","150")
+
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUSTOMER","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","NAME_CUST","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUST_GROUP","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","DATE_SHIP","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_NO","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_SUFFIX","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_REC","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PART","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_DESC","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PRODUCT_LINE","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","EXTENSION","HeaderFontBold",True)
+
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUSTOMER","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","NAME_CUST","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUST_GROUP","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","DATE_SHIP","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_NO","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_SUFFIX","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_REC","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PART","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","ORDER_DESC","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PRODUCT_LINE","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","EXTENSION","HeaderHAlignment","Center")
+
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","CUSTOMER","CellHAlignment","Center")
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","PRODUCT_LINE","CellHAlignment","Center")
+
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","EXTENSION","DisplayCustomNumeric","#,###,##0.00####")
+
+	Gui.frmMonthlySales.GsGCAccrual.AddSummaryItem("gvAccrual","EXTENSION","","SUM","","","n")
+	
+	Gui.frmMonthlySales.GsGCAccrual.SetColumnProperty("gvAccrual","DATE_SHIP","DisplayCustomDatetime","d")
+
+	Gui.frmMonthlySales.GsGCAccrual.ResumeLayout()
+	Gui.frmMonthlySales.GsGCAccrual.MainView("gvAccrual")
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadgvAccrual.End
+
+Program.Sub.LoadgvPrevAccrual.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	Gui.frmMonthlySales.GsGCPrevAccrual.AddGridviewFromDatatable("gvPrevAccrual","dtPrevAccrual")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SuspendLayout()
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetGridViewProperty("gvPrevAccrual","MultiSelect",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetGridViewProperty("gvPrevAccrual","AllowSort",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetGridViewProperty("gvPrevAccrual","AllowFilter",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetGridViewProperty("gvPrevAccrual","ShowGroupPanel",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetGridViewProperty("gvPrevAccrual","EnableAppearanceOddRow",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetGridViewProperty("gvPrevAccrual","OptionsViewColumnAutoWidth",False)
+
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUSTOMER","VisibleIndex","0")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","NAME_CUST","VisibleIndex","1")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUST_GROUP","VisibleIndex","2")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","DATE_SHIP","VisibleIndex","3")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_NO","VisibleIndex","4")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_SUFFIX","VisibleIndex","5")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_REC","VisibleIndex","6")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PART","VisibleIndex","7")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_DESC","VisibleIndex","8")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PRODUCT_LINE","VisibleIndex","9")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","EXTENSION","VisibleIndex","10")
+
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUSTOMER","Caption","Customer")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","NAME_CUST","Caption","Customer Name")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUST_GROUP","Caption","Group")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","DATE_SHIP","Caption","Date")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_NO","Caption","Order Number")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_SUFFIX","Caption","Suffix")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_REC","Caption","Line")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PART","Caption","Part")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_DESC","Caption","Description")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PRODUCT_LINE","Caption","PL")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","EXTENSION","Caption","Amount")
+
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUSTOMER","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","NAME_CUST","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUST_GROUP","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","DATE_SHIP","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_NO","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_SUFFIX","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_REC","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PART","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_DESC","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","DATE_SHIP","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PRODUCT_LINE","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","EXTENSION","AllowEdit",False)
+
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUSTOMER","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","NAME_CUST","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUST_GROUP","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","DATE_SHIP","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_NO","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_SUFFIX","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_REC","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PART","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_DESC","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PRODUCT_LINE","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","EXTENSION","ReadOnly",True)
+
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUSTOMER","MinWidth","50")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","NAME_CUST","MinWidth","200")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUST_GROUP","MinWidth","150")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","DATE_SHIP","MinWidth","100")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_NO","MinWidth","100")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_SUFFIX","MinWidth","100")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_REC","MinWidth","100")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PART","MinWidth","150")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_DESC","MinWidth","200")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PRODUCT_LINE","MinWidth","30")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","EXTENSION","MinWidth","150")
+
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUSTOMER","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","NAME_CUST","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUST_GROUP","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","DATE_SHIP","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_NO","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_SUFFIX","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_REC","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PART","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_DESC","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PRODUCT_LINE","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","EXTENSION","HeaderFontBold",True)
+
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUSTOMER","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","NAME_CUST","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUST_GROUP","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","DATE_SHIP","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_NO","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_SUFFIX","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_REC","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PART","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","ORDER_DESC","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PRODUCT_LINE","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","EXTENSION","HeaderHAlignment","Center")
+
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","CUSTOMER","CellHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","PRODUCT_LINE","CellHAlignment","Center")
+
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","EXTENSION","DisplayCustomNumeric","#,###,##0.00####")
+
+	Gui.frmMonthlySales.GsGCPrevAccrual.AddSummaryItem("gvPrevAccrual","EXTENSION","","SUM","","","n")
+	
+	Gui.frmMonthlySales.GsGCPrevAccrual.SetColumnProperty("gvPrevAccrual","DATE_SHIP","DisplayCustomDatetime","d")
+
+	Gui.frmMonthlySales.GsGCPrevAccrual.ResumeLayout()
+	Gui.frmMonthlySales.GsGCPrevAccrual.MainView("gvPrevAccrual")
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadgvPrevAccrual.End
+
+Program.Sub.LoadgvOpenInvoice.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	Gui.frmMonthlySales.GsGCOpenInv.AddGridviewFromDatatable("gvOpenInv","dtOpenInv")
+	Gui.frmMonthlySales.GsGCOpenInv.SuspendLayout()
+	Gui.frmMonthlySales.GsGCOpenInv.SetGridViewProperty("gvOpenInv","MultiSelect",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetGridViewProperty("gvOpenInv","AllowSort",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetGridViewProperty("gvOpenInv","AllowFilter",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetGridViewProperty("gvOpenInv","ShowGroupPanel",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetGridViewProperty("gvOpenInv","EnableAppearanceOddRow",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetGridViewProperty("gvOpenInv","OptionsViewColumnAutoWidth",False)
+
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUSTOMER","VisibleIndex","0")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","NAME_CUST","VisibleIndex","1")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUST_GROUP","VisibleIndex","2")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","INVOICE","VisibleIndex","3")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","DATE_INV","VisibleIndex","4")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_NO","VisibleIndex","5")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_SUFFIX","VisibleIndex","6")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_REC","VisibleIndex","7")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PART","VisibleIndex","8")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_DESC","VisibleIndex","9")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PRODUCT_LINE","VisibleIndex","10")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","EXTENSION","VisibleIndex","11")
+
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUSTOMER","Caption","Customer")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","NAME_CUST","Caption","Customer Name")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUST_GROUP","Caption","Group")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","INVOICE","Caption","Invoice")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","DATE_INV","Caption","Date")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_NO","Caption","Order Number")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_SUFFIX","Caption","Suffix")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_REC","Caption","Line")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PART","Caption","Part")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_DESC","Caption","Description")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PRODUCT_LINE","Caption","PL")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","EXTENSION","Caption","Amount")
+
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUSTOMER","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","NAME_CUST","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUST_GROUP","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","INVOICE","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","DATE_INV","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_NO","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_SUFFIX","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_REC","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PART","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_DESC","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PRODUCT_LINE","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","EXTENSION","AllowEdit",False)
+
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUSTOMER","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","NAME_CUST","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUST_GROUP","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","INVOICE","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","DATE_INV","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_NO","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_SUFFIX","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_REC","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PART","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_DESC","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PRODUCT_LINE","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","EXTENSION","ReadOnly",True)
+
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUSTOMER","MinWidth","50")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","NAME_CUST","MinWidth","200")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUST_GROUP","MinWidth","150")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","INVOICE","MinWidth","70")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","DATE_INV","MinWidth","100")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_NO","MinWidth","100")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_SUFFIX","MinWidth","100")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_REC","MinWidth","100")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PART","MinWidth","150")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_DESC","MinWidth","200")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PRODUCT_LINE","MinWidth","30")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","EXTENSION","MinWidth","200")
+
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUSTOMER","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","NAME_CUST","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUST_GROUP","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","INVOICE","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","DATE_INV","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_NO","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_SUFFIX","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_REC","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PART","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_DESC","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PRODUCT_LINE","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","EXTENSION","HeaderFontBold",True)
+
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUSTOMER","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","NAME_CUST","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUST_GROUP","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","INVOICE","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","DATE_INV","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_NO","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_SUFFIX","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_REC","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PART","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","ORDER_DESC","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PRODUCT_LINE","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","EXTENSION","HeaderHAlignment","Center")
+
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","CUSTOMER","CellHAlignment","Center")
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","PRODUCT_LINE","CellHAlignment","Center")
+
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","EXTENSION","DisplayCustomNumeric","#,###,##0.00####")
+
+	Gui.frmMonthlySales.GsGCOpenInv.AddSummaryItem("gvOpenInv","EXTENSION","","SUM","","","n")
+	
+	Gui.frmMonthlySales.GsGCOpenInv.SetColumnProperty("gvOpenInv","DATE_INV","DisplayCustomDatetime","d")
+
+	Gui.frmMonthlySales.GsGCOpenInv.ResumeLayout()
+	Gui.frmMonthlySales.GsGCOpenInv.MainView("gvOpenInv")
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadgvOpenInvoice.End
+
+Program.Sub.LoadgvPrevOpenInvoice.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	Gui.frmMonthlySales.GsGCPrevOpenInv.AddGridviewFromDatatable("gvPrevOpenInv","dtPrevOpenInv")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SuspendLayout()
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetGridViewProperty("gvPrevOpenInv","MultiSelect",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetGridViewProperty("gvPrevOpenInv","AllowSort",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetGridViewProperty("gvPrevOpenInv","AllowFilter",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetGridViewProperty("gvPrevOpenInv","ShowGroupPanel",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetGridViewProperty("gvPrevOpenInv","EnableAppearanceOddRow",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetGridViewProperty("gvPrevOpenInv","OptionsViewColumnAutoWidth",False)
+
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUSTOMER","VisibleIndex","0")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","NAME_CUST","VisibleIndex","1")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUST_GROUP","VisibleIndex","2")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","INVOICE","VisibleIndex","3")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","DATE_INV","VisibleIndex","4")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_NO","VisibleIndex","5")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_SUFFIX","VisibleIndex","6")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_REC","VisibleIndex","7")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PART","VisibleIndex","8")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_DESC","VisibleIndex","9")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PRODUCT_LINE","VisibleIndex","10")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","EXTENSION","VisibleIndex","11")
+
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUSTOMER","Caption","Customer")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","NAME_CUST","Caption","Customer Name")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUST_GROUP","Caption","Group")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","INVOICE","Caption","Invoice")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","DATE_INV","Caption","Date")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_NO","Caption","Order Number")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_SUFFIX","Caption","Suffix")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_REC","Caption","Line")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PART","Caption","Part")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_DESC","Caption","Description")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PRODUCT_LINE","Caption","PL")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","EXTENSION","Caption","Amount")
+
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUSTOMER","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","NAME_CUST","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUST_GROUP","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","INVOICE","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","DATE_INV","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_NO","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_SUFFIX","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_REC","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PART","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_DESC","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PRODUCT_LINE","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","EXTENSION","AllowEdit",False)
+
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUSTOMER","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","NAME_CUST","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUST_GROUP","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","INVOICE","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","DATE_INV","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_NO","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_SUFFIX","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_REC","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PART","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_DESC","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PRODUCT_LINE","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","EXTENSION","ReadOnly",True)
+
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUSTOMER","MinWidth","50")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","NAME_CUST","MinWidth","200")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUST_GROUP","MinWidth","150")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","INVOICE","MinWidth","70")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","DATE_INV","MinWidth","100")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_NO","MinWidth","100")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_SUFFIX","MinWidth","100")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_REC","MinWidth","100")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PART","MinWidth","150")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_DESC","MinWidth","200")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PRODUCT_LINE","MinWidth","30")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","EXTENSION","MinWidth","200")
+
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUSTOMER","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","NAME_CUST","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUST_GROUP","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","INVOICE","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","DATE_INV","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_NO","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_SUFFIX","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_REC","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PART","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_DESC","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PRODUCT_LINE","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","EXTENSION","HeaderFontBold",True)
+
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUSTOMER","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","NAME_CUST","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUST_GROUP","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","INVOICE","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","DATE_INV","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_NO","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_SUFFIX","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_REC","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PART","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","ORDER_DESC","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PRODUCT_LINE","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","EXTENSION","HeaderHAlignment","Center")
+
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","CUSTOMER","CellHAlignment","Center")
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","PRODUCT_LINE","CellHAlignment","Center")
+
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","EXTENSION","DisplayCustomNumeric","#,###,##0.00####")
+
+	Gui.frmMonthlySales.GsGCPrevOpenInv.AddSummaryItem("gvPrevOpenInv","EXTENSION","","SUM","","","n")
+	
+	Gui.frmMonthlySales.GsGCPrevOpenInv.SetColumnProperty("gvPrevOpenInv","DATE_INV","DisplayCustomDatetime","d")
+
+	Gui.frmMonthlySales.GsGCPrevOpenInv.ResumeLayout()
+	Gui.frmMonthlySales.GsGCPrevOpenInv.MainView("gvPrevOpenInv")
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadgvPrevOpenInvoice.End
+
+Program.Sub.LoadgvInvoice.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	Gui.frmMonthlySales.GsGCInvoice.AddGridviewFromDatatable("gvInvoice","dtInvoice")
+	Gui.frmMonthlySales.GsGCInvoice.SuspendLayout()
+	Gui.frmMonthlySales.GsGCInvoice.SetGridViewProperty("gvInvoice","MultiSelect",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetGridViewProperty("gvInvoice","AllowSort",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetGridViewProperty("gvInvoice","AllowFilter",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetGridViewProperty("gvInvoice","ShowGroupPanel",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetGridViewProperty("gvInvoice","EnableAppearanceOddRow",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetGridViewProperty("gvInvoice","OptionsViewColumnAutoWidth",False)
+
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUSTOMER","VisibleIndex","0")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","NAME_CUST","VisibleIndex","1")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUST_GROUP","VisibleIndex","2")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","INVOICE","VisibleIndex","3")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DATE_INV","VisibleIndex","4")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_NO","VisibleIndex","5")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_SUFFIX","VisibleIndex","6")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_LINE","VisibleIndex","7")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PART","VisibleIndex","8")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DESCRIPTION","VisibleIndex","9")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PRODUCT_LINE","VisibleIndex","10")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","EXTENSION","VisibleIndex","11")
+
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUSTOMER","Caption","Customer")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","NAME_CUST","Caption","Customer Name")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUST_GROUP","Caption","Group")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","INVOICE","Caption","Invoice")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DATE_INV","Caption","Date")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_NO","Caption","Order Number")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_SUFFIX","Caption","Suffix")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_LINE","Caption","Line")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PART","Caption","Part")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DESCRIPTION","Caption","Description")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PRODUCT_LINE","Caption","PL")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","EXTENSION","Caption","Amount")
+
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUSTOMER","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","NAME_CUST","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUST_GROUP","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","INVOICE","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DATE_INV","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_NO","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_SUFFIX","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_LINE","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PART","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DESCRIPTION","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PRODUCT_LINE","AllowEdit",False)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","EXTENSION","AllowEdit",False)
+
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUSTOMER","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","NAME_CUST","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUST_GROUP","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","INVOICE","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DATE_INV","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_NO","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_SUFFIX","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_LINE","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PART","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DESCRIPTION","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PRODUCT_LINE","ReadOnly",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","EXTENSION","ReadOnly",True)
+
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUSTOMER","MinWidth","50")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","NAME_CUST","MinWidth","200")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUST_GROUP","MinWidth","150")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","INVOICE","MinWidth","70")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DATE_INV","MinWidth","100")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_NO","MinWidth","100")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_SUFFIX","MinWidth","100")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_LINE","MinWidth","100")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PART","MinWidth","150")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DESCRIPTION","MinWidth","200")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PRODUCT_LINE","MinWidth","30")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","EXTENSION","MinWidth","200")
+
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUSTOMER","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","NAME_CUST","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUST_GROUP","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","INVOICE","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DATE_INV","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_NO","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_SUFFIX","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_LINE","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PART","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DESCRIPTION","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PRODUCT_LINE","HeaderFontBold",True)
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","EXTENSION","HeaderFontBold",True)
+
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUSTOMER","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","NAME_CUST","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUST_GROUP","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","INVOICE","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DATE_INV","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_NO","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_SUFFIX","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","ORDER_LINE","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PART","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DESCRIPTION","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PRODUCT_LINE","HeaderHAlignment","Center")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","EXTENSION","HeaderHAlignment","Center")
+
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","CUSTOMER","CellHAlignment","Center")
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","PRODUCT_LINE","CellHAlignment","Center")
+
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","EXTENSION","DisplayCustomNumeric","#,###,##0.00####")
+
+	Gui.frmMonthlySales.GsGCInvoice.AddSummaryItem("gvInvoice","EXTENSION","","SUM","","","n")
+	
+	Gui.frmMonthlySales.GsGCInvoice.SetColumnProperty("gvInvoice","DATE_INV","DisplayCustomDatetime","d")
+
+	Gui.frmMonthlySales.GsGCInvoice.ResumeLayout()
+	Gui.frmMonthlySales.GsGCInvoice.MainView("gvInvoice")
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadgvInvoice.End
+
+Program.Sub.Serialize.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	V.Local.sSerialize.Declare
+
+	'gvMonthly
+	Gui.frmMonthlySales.GsGCMonthlySales.Serialize("gvMonthly",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvMonthly",4631,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+
+	'gvAccrual
+	Gui.frmMonthlySales.GsGCAccrual.Serialize("gvAccrual",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvAccrual",4631,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	
+	'gvPrevAccrual
+	Gui.frmMonthlySales.GsGCPrevAccrual.Serialize("gvPrevAccrual",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvPrevAccrual",4631,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)	
+
+	'gvOpenInv
+	Gui.frmMonthlySales.GsGCOpenInv.Serialize("gvOpenInv",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvOpenInv",4631,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+
+	'gvPrevOpenInv
+	Gui.frmMonthlySales.GsGCPrevOpenInv.Serialize("gvPrevOpenInv",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvPrevOpenInv",4631,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+
+	'gvInvoice
+	Gui.frmMonthlySales.GsGCInvoice.Serialize("gvInvoice",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvInvoice",4631,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.Serialize.End
+
+Program.Sub.Deserialize.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	V.Local.sSerialize.Declare
+
+	'gvMonthly
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvMonthly",4631,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		Gui.frmMonthlySales.GsGCMonthlySales.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+
+	'gvAccrual
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvAccrual",4631,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		Gui.frmMonthlySales.GsGCAccrual.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+
+	'gvPrevAccrual
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvPrevAccrual",4631,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		Gui.frmMonthlySales.GsGCPrevAccrual.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf	
+
+	'gvOpenInv
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvOpenInv",4631,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		Gui.frmMonthlySales.GsGCOpenInv.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+
+	'gvPrevOpenInv
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvPrevOpenInv",4631,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		Gui.frmMonthlySales.GsGCPrevOpenInv.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+	
+	'gvInvoice
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvInvoice",4631,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		Gui.frmMonthlySales.GsGCInvoice.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf	
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.Deserialize.End
+
+Program.Sub.Comments.Start
+${$0$}$Monthly Sales Dashboard$}$DYUNUS$}$11/4/2019 5:43:02 PM$}$False
+${$3$}$0$}$$}$0$}$-1$}$$}$12:00:00 AM$}$This program is GL manual journal that allows multi-currency entry. Data related to exchange rate are stored in a custom table. The program also stores batch posted in AP and AR which is in foreign currency.
+${$5$}$2.0.0.0$}$2
+${$6$}$dyunus$}$20230116101618719$}$xZ6SHi8g7O0Qsxe6AiO2NH3PnOKQRy0Tq7MtRcgK5DeqT4F8mER/vAXqVYRRyWu6mkcZVZAS6zU=
+Program.Sub.Comments.End
